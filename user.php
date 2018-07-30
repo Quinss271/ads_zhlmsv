@@ -228,6 +228,7 @@ if (mysqli_connect_errno())
                                                     <div class="col-xs-6">
                                                         <?
 
+
                                   //FIO
                                     $fio_head = mysqli_query($db, "SELECT `fio` FROM `reqs` WHERE `id` = ".($numberof[0]-1)." LIMIT 0, 30");
                                     $fio_head = mysqli_fetch_array($fio_head);
