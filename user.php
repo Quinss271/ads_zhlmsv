@@ -2,17 +2,7 @@
 <html lang="en">
 <head>
     <?php
-$db = mysqli_connect("127.0.0.1","root","root","ads_db") ;
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
- /* $fio = $_GET['fio'];
-  if (isset($fio)) {
-   mysqli_query("INSERT INTO `reqs` (`fio`) VALUES ('" . $fio . "')");
-   var_dump($fio);
-}*/
-
+include "config.php"
 ?>
 	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
@@ -200,7 +190,7 @@ if (mysqli_connect_errno())
                                     </small></h5>
                                     </div>
                                     
-                                    <div class="col-md-4">
+                                    <div class="col-md-7">
                                         <h5>Status<br /><small><?
 
 
@@ -227,8 +217,6 @@ if (mysqli_connect_errno())
                                                     </div>
                                                     <div class="col-xs-6">
                                                         <?
-
-
                                   //FIO
                                     $fio_head = mysqli_query($db, "SELECT `fio` FROM `reqs` WHERE `id` = ".($numberof[0]-1)." LIMIT 0, 30");
                                     $fio_head = mysqli_fetch_array($fio_head);
@@ -243,8 +231,11 @@ if (mysqli_connect_errno())
                                     echo $status[0];?></small></span>
                                                     </div>
 
-                                                    <div class="col-xs-3 text-right">
-                                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+                                                    <div class="col-xs-5">
+                                                        <btn class="btn btn-sm btn-success btn-icon" onclick="doneforreq()"><i class="fa fa-check"></i></btn>
+                                                    </div>
+                                                     <div class="col-xs-3 ">
+                                                        <btn class="btn btn-sm btn-danger btn-icon" onclick="error()"><i class="fa fa-times"></i></btn>
                                                     </div>
                                                 </div>
                                             </li>
@@ -272,9 +263,13 @@ if (mysqli_connect_errno())
                                     echo $status[0];?></small></span>
                                                     </div>
 
-                                                    <div class="col-xs-3 text-right">
-                                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+                                                   <div class="col-xs-5">
+                                                        <btn class="btn btn-sm btn-success btn-icon" onclick="doneforreq()"><i class="fa fa-check"></i></btn>
                                                     </div>
+                                                     <div class="col-xs-3">
+                                                        <btn class="btn btn-sm btn-danger btn-icon" onclick="error()"><i class="fa fa-times"></i></btn>
+                                                    </div>
+                                                    
                                                 </div>
                                             </li>
                                             <li>
@@ -301,10 +296,13 @@ if (mysqli_connect_errno())
                                     echo $status[0];?></small></span>
                                                     </div>
 
-                                                    <div class="col-xs-3 text-right">
-                                                        <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+                                                    <div class="col-xs-5">
+                                                        <btn class="btn btn-sm btn-success btn-icon" onclick="doneforreq()"><i class="fa fa-check"></i></btn>
                                                     </div>
-                                                </div>
+                                                    <div class="col-xs-3">
+                                                        <btn class="btn btn-sm btn-danger btn-icon" onclick="error()"><i class="fa fa-times"></i></btn>
+                                                    </div>
+                                                    
                                             </li>
                                         </ul>
                             </div>
@@ -349,26 +347,12 @@ if (mysqli_connect_errno())
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Note</label>
-                                                <textarea id="comm" name="comm" rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike"></textarea>
+                                                <textarea id="comm" name="comm" rows="5" class="form-control border-input" placeholder="Here can be your comment" value="Mike"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <div class='col-sm-6'>
-          
-               <div class='input-group date' id='datetimepicker1' name="dateofstart">
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            
-        
-                                            </div>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="text-center">
                                         <input type="button" name="Done" class="btn btn-info btn-fill btn-wd" value="Done" onclick="addreq()">
 
@@ -392,24 +376,18 @@ if (mysqli_connect_errno())
                     <ul>
 
                         <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
-                            </a>
+                           
                         </li>
                         <li>
-                            <a href="http://blog.creative-tim.com">
-                               Blog
-                            </a>
+                           
                         </li>
                         <li>
-                            <a href="http://www.creative-tim.com/license">
-                                Licenses
-                            </a>
+                          
                         </li>
                     </ul>
                 </nav>
 				<div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i>
                 </div>
             </div>
         </footer>
