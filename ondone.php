@@ -11,6 +11,11 @@ if (isset($fio)){
 }
 else{
 	$change = $_POST['change'];
-   	mysqli_query($db, "INSERT INTO `reqs` (`status`) VALUES ('Done') WHERE `id` = 43");
+	$numberof = mysqli_query($db, "SELECT MAX(id) FROM reqs");
+	$numberof = mysqli_fetch_array($numberof);
+	$idf = mysqli_query($db, "SELECT `id` FROM `reqs` WHERE `id` = ".($numberof[0]-1)." LIMIT 0, 30");
+	$idf = mysqli_fetch_array($idf);
+   	mysqli_query($db, "UPDATE `reqs` SET  `status` =  'Done' WHERE `id` = ".$idf[0]."");
+
 }
 ?>

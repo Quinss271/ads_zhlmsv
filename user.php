@@ -57,7 +57,7 @@ include "config.php"
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard.html">
+                    <a href="dashboard.php">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
@@ -219,8 +219,9 @@ include "config.php"
                                                         <?
                                   //FIO
                                     $fio_head = mysqli_query($db, "SELECT `fio` FROM `reqs` WHERE `id` = ".($numberof[0]-1)." LIMIT 0, 30");
-                                    $fio_head = mysqli_fetch_array($fio_head);
-                                    echo $fio_head[0];?>
+                                    $fio_head = mysqli_fetch_array($fio_head);                                    
+                                    echo $fio_head[0];
+                                    ?>
                                                         <br />
                                                         <span class="text-success"><small><?
 
