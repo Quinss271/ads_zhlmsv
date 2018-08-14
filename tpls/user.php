@@ -2,50 +2,46 @@
 <html lang="en">
 <head>
     <?php
-include "config.php"
+include "../config.php"
 ?>
-	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-	<title>Paper Dashboard by Creative Tim</title>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <title>ADS</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="../assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  Paper Dashboard core CSS    -->
-    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
+    <link href="../assets/css/paper-dashboard.css" rel="stylesheet"/>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="../assets/css/demo.css" rel="stylesheet" />
 
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/themify-icons.css" rel="stylesheet">
-    <?
-    $numberof = mysqli_query($db, "SELECT MAX(id) FROM reqs");
-   $numberof = mysqli_fetch_array($numberof);  
-    echo $numberof[0];
-    ?>
+    
 </head>
 <body>
 
 <div class="wrapper">
-	<div class="sidebar" data-background-color="white" data-active-color="danger">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
 
     <!--
-		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-	-->
+        Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+        Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+    -->
 
 
         <div class="sidebar-wrapper">
@@ -62,8 +58,8 @@ include "config.php"
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="user.html">
+                <li>
+                    <a href="user.php">
                         <i class="ti-user"></i>
                         <p>Заявки</p>
                     </a>
@@ -82,7 +78,7 @@ include "config.php"
                     </a>
                 </li>
                 <li>
-                    <a href="notifications.html">
+                    <a href="notification.php">
                         <i class="ti-bell"></i>
                         <p>Входящие вызовы/заявки</p>
                     </a>
@@ -138,8 +134,41 @@ include "config.php"
             </div>
         </nav>
 
+<?php
+    //$numberof=$_GET["numberof"];       
+    $numberof = mysqli_query($db, "SELECT MAX(id) FROM reqs");
+    $numberof = mysqli_fetch_array($numberof);  
+    echo $numberof[0];
+    
+?>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<title>Paper Dashboard by Creative Tim</title>
 
-        <div class="content">
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="../assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="../assets/css/paper-dashboard.css" rel="stylesheet"/>
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+
+    <!--  Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="../assets/css/themify-icons.css" rel="stylesheet">
+           <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-4 col-md-5">
@@ -148,7 +177,7 @@ include "config.php"
 
 
                             <div class="image">
-                                <img src="assets/img/background.jpg" alt="...">
+                                <img src="../assets/img/background.jpg" alt="...">
                             </div>
                           
                                 
@@ -156,9 +185,8 @@ include "config.php"
 
                             <div class="content">
                                 <div class="author">
-                                    <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="...">
+                                    <img class="avatar border-white" src="../assets/img/faces/face-2.jpg" alt="...">
                                   <h4 class="title"><?
-
                                   //FIO
                                     $fio_head = mysqli_query($db, "SELECT `fio` FROM `reqs` WHERE `id` = ".$numberof[0]." LIMIT 0, 30");
                                     $fio_head = mysqli_fetch_array($fio_head);
@@ -212,16 +240,18 @@ include "config.php"
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <div class="avatar">
-                                                            <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                            <img src="../assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-6">
                                                         <?
                                   //FIO
+                                    echo ($numberof[0]-1);
                                     $fio_head = mysqli_query($db, "SELECT `fio` FROM `reqs` WHERE `id` = ".($numberof[0]-1)." LIMIT 0, 30");
                                     $fio_head = mysqli_fetch_array($fio_head);                                    
                                     echo $fio_head[0];
                                     ?>
+                                </a>
                                                         <br />
                                                         <span class="text-success"><small><?
 
@@ -244,7 +274,7 @@ include "config.php"
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <div class="avatar">
-                                                            <img src="assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                            <img src="../assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-6">
@@ -277,7 +307,7 @@ include "config.php"
                                                 <div class="row">
                                                     <div class="col-xs-3">
                                                         <div class="avatar">
-                                                            <img src="assets/img/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                            <img src="../assets/img/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-6">
@@ -400,30 +430,30 @@ include "config.php"
 </body>
 
     <!--   Core JS Files   -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>   
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>   
+	<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
-	<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+	<script src="../assets/js/bootstrap-checkbox-radio.js"></script>
 
 	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
+	<script src="../assets/js/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
+    <script src="../assets/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="assets/js/paper-dashboard.js"></script>
+	<script src="../assets/js/paper-dashboard.js"></script>
 
     <!--Main scripts-->
-     <script src="assets/js/reqs.js" type="text/javascript"></script>
+     <script src="../assets/js/reqs.js" type="text/javascript"></script>
 
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+	<script src="../assets/js/demo.js"></script>
 
 
 </html>
